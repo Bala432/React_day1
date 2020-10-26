@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function submit(){
+			let roll = document.getElementById('roll').value;
+			let credit = document.getElementById('credit').value;
+			let res = document.getElementById('sel').value;
+			
+			let total = res=='O'?10:res=='S'?9:res=='A'?8:res=='B'?7:res=='C'?6:5;
+
+			let sel = document.createElement('h1');
+
+			let v = document.createTextNode(`The calculated credit score is ${total*credit}`)
+			
+			sel.appendChild(v);
+			document.body.appendChild(sel);
+
+		}
+	</script>
+</head>
+<body>
+	Enter Roll Number: <input type="number" id="roll"><br>
+	Enter credit for subject: <input type="number" id="credit"><br>
+	Select your Credit : 
+	<select id="sel">
+		<option value="O">O</option>
+		<option value="S">S</option>
+		<option value="A">A</option>
+		<option value="B">B</option>
+		<option value="C">C</option>
+		<option value="D">D</option>
+
+	</select><br>
+	<input type="submit" value="Submit" onclick="submit()"> 
+</body>
+</html>

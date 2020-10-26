@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+</head>
+<body>
+	<div id="c" onload="digitalClock()"></div>
+	<script type="text/javascript">
+
+		function digitalClock(){
+			
+			let c = document.getElementById("c");
+			let curr = new Date();
+			let sec = curr.getSeconds();
+			let hour = curr.getHours();
+			let min = curr.getMinutes();
+
+			let mode = "AM";
+
+			if(hour>12)
+			{
+				hour=hour-12;
+				mode = "PM";
+			}
+			if(hour == 0)
+			{
+				hour = 12;
+				mode = "AM"
+			}
+
+			hour = hour>10?hour:"0"+hour;
+			min = min>10?min:"0"+min;
+			sec = sec>10?sec:"0"+sec;
+
+			c.textContent = hour+":"+min+":"+sec+" "+mode;
+			setTimeout(digitalClock,1000);
+		}
+		digitalClock();
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table{
+			border: 2px solid black;
+		}
+		/*td{
+			padding: 10px;
+			border: 1px solid black;
+		}*/
+	</style>
+	<script type="text/javascript">
+	function createTable(){
+		let tb = document.getElementById("tb");
+
+	let rs = document.getElementById("rows").value;
+	let cs = document.getElementById("cols").value;
+
+	console.log(`Rows = ${rs} , Columns = ${cs}`);
+
+	let st = document.createElement("table");
+	
+
+	for(let r=0;r<rs;r++)
+	{
+		let row = document.createElement("tr");
+
+		for(let c=0;c<cs;c++)
+		{
+			let col = document.createElement("td");
+			col.appendChild(document.createTextNode(c+1));
+			row.appendChild(col);
+		}
+		st.appendChild(row);
+	}
+	tb.appendChild(st);
+
+}
+</script>
+</head>
+<body>
+	Enter Number of Rows: <input type="number" id="rows"><br>
+	Enter Number of Columns: <input type="number" id="cols"><br>
+	<input type="submit" onclick="createTable()" value="Create table">
+	<div id="tb"></div>
+</body>
+</html>

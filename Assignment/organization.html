@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+			width:100%;
+			height:50px;
+		}
+		table,th,td{
+			border:2px solid black;
+			text-align: center;
+		}
+	</style>
+	<script src="Organization.js"></script>
+</head>
+<body>
+Enter Organization Name : <input type="text" id="nm"> <br>
+Enter Location <input type="text" name="" id="loc"> <br>
+Enter Turnover<input type="number" id="turnover"><br>
+<input type="button" name="" onclick="submitValues()" value="Submit">
+
+<table>
+
+	<tr>
+		<th>Organization Name</th>
+		<th>Location</th>
+		<th>Turnover(cr)</th>
+	</tr>
+	<tr>
+		<td id="one"></td>
+		<td id="two"></td>
+		<td id="three"></td>
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		table{
+			border-collapse: collapse;
+			width:100%;
+			height:50px;
+		}
+		table,th,td{
+			border:2px solid black;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		function Employee(empId,name,salary,join_date){
+			this.empId=empId;
+			this.name=name;
+			this.salary=salary;
+			this.join_date = join_date
+			}
+		
+		var records=[];
+
+		function saveRecord(){
+			var val1=document.getElementById('txt1').value;
+			var val2=document.getElementById('txt2').value;
+			var val3=document.getElementById('txt3').value;
+			var val4 = document.getElementById('jd').value;
+
+			var emp=new Employee(val1,val2,val3,val4);
+			records.push(emp);
+			alert("Records saved");
+		}
+
+		function displayRecords(){
+
+			var disp = document.getElementById("d1");
+			disp.innerHTML = "";
+			var tb = document.createElement("table");
+			var ex = document.createElement('tr');
+
+			var e1 = document.createElement('td');
+			e1.appendChild(document.createTextNode('EmployeeId'));
+			ex.appendChild(e1);
+
+			var e2 = document.createElement('td');
+			e2.appendChild(document.createTextNode('Name'));
+			ex.appendChild(e2);
+
+			var e3 = document.createElement('td');
+			e3.appendChild(document.createTextNode('Salary'));
+			ex.appendChild(e3);
+
+			var e4 = document.createElement('td');
+			e4.appendChild(document.createTextNode('Joining Date'));
+			ex.appendChild(e4);
+
+			tb.appendChild(ex);
+
+			var rows = records.length;
+
+			for(i=0;i<records.length;i++){
+				var r = document.createElement('tr');
+				var temp = records[i];
+				for(let key of Object.keys(temp)){
+					var c = document.createElement('td');
+					c.appendChild(document.createTextNode(`${temp[key]}`));
+					r.appendChild(c);
+				}
+				tb.appendChild(r);
+			}
+
+			disp.appendChild(tb);
+		}
+
+		function modify(){
+			for(let i=0;i<records.length;i++){
+				let s = records[i];
+				if(s.name.charAt(0)=='A'){
+					s.salary+=100;
+					displayRecords();
+				}
+			}
+
+		}
+
+		function countRecords(){
+			let c = records.length;
+			let r = document.getElementById("d2");
+			r.innerHTML = `the count of Employees is ${c}`;
+		}
+
+
+	</script>
+</head>
+<body>
+
+Enter empId <input type="text" name="" id="txt1"> <br>
+Enter name <input type="text" name="" id="txt2"> <br>
+Enter salary <input type="text" name="" id="txt3"> <br>
+Enter Joining Date <input type="date" id="jd"><br>
+
+<input type="button" name="" onclick="saveRecord()" value="SaveRecord"> <br>
+<input type="button" name="" onclick="displayRecords()" value="DisplayRecords"> <br>
+<input type="button" name="" onclick="modify()" value="Modify Record"><br>
+<input type="button" name="" id="count" value="Count Records" onclick="countRecords()"><br>
+<!-- <input type="button" name="" id="join_date" onclick="joinDate()"><br> -->
+
+<div id="d1"></div>
+<div id="d2"></div>
+</body>
+</html>

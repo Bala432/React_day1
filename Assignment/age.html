@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	<script type="text/javascript">
+		function sub(){
+		 var d1 = new Date(document.getElementById("d1").value);
+		var d2 = new Date(document.getElementById("d2").value);
+		alert(d1.getTime());
+		
+		if(d1>d2)
+				alert("First Date is greater than Second Date");
+		else
+			{
+		 		var result = d2.getTime()-d1.getTime();
+		 		var r = result/(1000*3600*24);
+				
+				var p = document.getElementById('res');
+				p.innerHTML = "The difference between dates is <h1>"+ r+"</h1>";
+			}
+		
+	}
+	</script>
+</head>
+<body>
+	Enter First Date: <input type="date" id="d1">
+	Enter Second Date: <input type="date" id="d2">
+	<input type="submit" onclick="sub()">
+	<p id="res"></p>
+</body>
+</html>

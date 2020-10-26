@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<script type="text/javascript">
+	function markText(){
+	let searching_text = document.getElementById("search").value;
+	let entire_text = document.getElementById("ex").innerHTML;
+	if(entire_text.toLowerCase().indexOf(searching_text.toLowerCase())>=0){
+		
+		let arr = entire_text.split(" ");
+		
+		for(let i in arr){
+			if(arr[i].toLowerCase()==searching_text.toLowerCase()){
+				arr[i] = "<mark style='background-color:yellow'>"+searching_text.toLowerCase()+"</mark>";
+			}
+			}
+		
+		let st = arr.join(" ");
+		
+		document.getElementById('ex').innerHTML=st;
+	}
+}
+	
+</script>
+
+</head>
+<body>
+	Search for text : <input type="text" id="search">
+	<input type="submit" onclick="markText()">
+	<p id="ex">The mark element is used to highlight text inside of another element such as a paragraph, list, or table. Text to which the mark element has been added is considered to be particularly relevant in a specific context</p>
+</body>
+</html>
